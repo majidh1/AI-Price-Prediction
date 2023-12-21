@@ -1,25 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
     <title>پیشبینی قیمت نماد بورس ایران - Majid Houshyar (MAjidH1)</title>
-    <link rel="icon" type="image/png" href="https://majidh1.github.io/ai-price-prediction/assets/img/favicon.png">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel='stylesheet' type='text/css'>
-    <link href="https://majidh1.github.io/ai-price-prediction/assets/css/materialize.min.css" type="text/css"
-        rel="stylesheet" media="screen,projection" />
-    <link href="https://majidh1.github.io/ai-price-prediction/assets/css/custom.css" type="text/css" rel="stylesheet"
-        media="screen,projection" />
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="assets/css/custom.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link rel="preload" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" as="style"
         onload="this.rel='stylesheet'">
-    <meta property="og:title" content="پیشبینی قیمت نماد در بورس ایران" />
-    <meta property="og:image"
-        content="https://majidh1.github.io/ai-price-prediction/assets/img/posts/time-series-00.jpg" />
-    <meta property="og:description"
-        content="Pull stock prices from online API and perform predictions using Recurrent Neural Network & Long Short Term Memory (LSTM) with TensorFlow.js framework" />
-    <meta property="og:url" content="https://majidh1.github.io/ai-price-prediction/ai-price-prediction-tensorflowjs" />
 </head>
 
 <body>
@@ -27,17 +17,17 @@
     <div class="navbar-fixed">
         <nav class="z-depth-2 nav-bar" role="navigation">
             <div class="nav-wrapper container">
-                <a id="logo-container" class="brand-logo truncate">
+                <div class="right">
                     پیشبینی قیمت نماد در آینده با TensorFlow.js
-                </a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="https://majidh1.github.io/ai-price-prediction/" class="tooltipped" data-position="top"
-                            data-tooltip="Blog"><i class="fas fa-blog"></i><span id="menu-text">Blog</span></a></li>
-                    <li><a href="https://majidh1.github.io/ai-price-prediction/playground/" class="tooltipped"
-                            data-position="top" data-tooltip="Playground"><i class="fas fa-laptop-code"></i><span
-                                id="menu-text">Playground</span></a></li>
+                </div>
+                <ul class="left hide-on-med-and-down">
+                    <li><a href="https://www.fipiran.com/DataService/TradeIndex" class="tooltipped" data-position="top"
+                            data-tooltip="Fipiran"><i class="fas fa-blog"></i><span id="menu-text"> fipiran </span></a>
+                    </li>
                     <li><a href="https://github.com/majidh1" target="_blank"><i class="fab fa-github-square"></i><span
-                                id="menu-text">GitHub</span></a></li>
+                                id="menu-text"> MAjidH1 </span></a></li>
+                    <li><a href="https://github.com/majidh1/ai-price-prediction" target="_blank"><i
+                                class="fab fa-github-square"></i><span id="menu-text"> Source </span></a></li>
                 </ul>
                 <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             </div>
@@ -59,7 +49,11 @@
             <div class="card-content">
                 <h1 class="title grey-text text-darken-4">پیشبینی قیمت نماد در آینده با TensorFlow.js</h1>
                 <h5 class="subtitle grey-text text-darken-2">معاملات نماد را از fipiran دریافت کنید و پیش‌بینی‌ها را با
-                    استفاده از شبکه عصبی بازگشتی (Recurrent Neural Network) و Long Short-Term Memory (LSTM) با فریمورک
+                    استفاده از شبکه عصبی بازگشتی (Recurrent Neural Network) 
+                    و
+                    LSTM
+                    (Long Short-Term Memory)
+                       با فریمورک
                     TensorFlow.js انجام دهید.</h5>
             </div>
             <div class="card-image">
@@ -87,11 +81,6 @@
                     <li>آموزش شبکه عصبی</li>
                     <li>انجام برخی پیش‌بینی‌ها</li>
                 </p>
-                <p>
-                    همچنین، برای بررسی نسخه‌ی <a href="https://github.com/majidh1/ai-price-prediction"
-                        target="_blank">PyTorch</a> این مخزن، که در آن به طور عمیق‌تری به مدل و مراحل پردازش داده
-                    پرداخته‌ایم، مراجعه فرمایید.
-                </p>
                 <!-- <button class="waves-effect waves-light btn" type="button" onclick="demo()" id="btn_load_demo">
           Load Snapshot Demo
         </button>
@@ -103,77 +92,48 @@
 
         <div class="card" id="div_data">
             <div class="card-content">
-                <span class="card-title">دریافت داده‌های سهام</span>
+                <span class="card-title">دریافت اطلاعات نماد</span>
                 <p>
                     <!-- [purpose of this step, fun for the reader] -->
                     پیش از اینکه بتوانیم شبکه عصبی را آموزش دهیم و هرگونه پیش‌بینی انجام دهیم، نیازمند داده هستیم. نوع
                     داده‌ای که به دنبال آن هستیم سری‌زمانی است: دنباله‌ای از اعداد به ترتیب زمانی. یک جای مناسب برای به
-                    دست آوردن این داده‌ها <a href="https://www.alphavantage.co" target="_blank">API سهام Alpha
-                        Vantage</a> است. این API به ما اجازه می‌دهد که داده‌های زمانی را راجع به قیمت‌های خاص سهام
-                    شرکت‌ها از ۲۰ سال گذشته به دست آوریم. شما همچنین می‌توانید به <a
-                        href="https://medium.com/@patrick.collins_58673/stock-api-landscape-5c6e054ee631"
-                        target="_blank">این مقاله</a> مراجعه کنید که قیمت‌های تنظیم‌شده سهام را، که یک مفهوم فنی مهم
-                    برای کار با داده‌های تاریخی بازار است، توضیح می‌دهد.
+                    دست آوردن این اطلاعات <a href="https://www.fipiran.com/DataService/TradeIndex" target="_blank">سایت فناوری بورس تهران</a> است. این سایت به ما اجازه می‌دهد که داده‌های زمانی را راجع به قیمت‌های معاملات سهام
+                    شرکت‌ها از ۲۰ سال گذشته به دست آوریم.
                 </p>
                 <p>
-                    شما می‌توانید قیمت‌های <a href="https://www.alphavantage.co/documentation/#dailyadj"
-                        target="_blank">روزانه تنظیم‌شده</a> یا <a
-                        href="https://www.alphavantage.co/documentation/#weeklyadj" target="_blank">هفتگی تنظیم‌شده</a>،
-                    مقادیر باز/حداکثر/حداقل/بسته/حجم، مقادیر بسته شده روزانه تنظیم‌شده و رویدادهای تاریخی تقسیم/سود سهام
-                    جهانی مشخص شده، شامل بیش از ۲۰ سال داده‌های تاریخی را انتخاب کنید. طبق پیشنهاد <a
-                        href="https://github.com/majidh1/ai-price-prediction/issues/4"
-                        target="_blank">desduvauchelle</a>، استفاده از قیمت بسته‌شده تنظیم‌شده نسبت به استفاده از قیمت
-                    بسته، نسبت به تقسیم سهام مقاوم‌تر است.
-                </p>
-                <p>
-                    API مقادیر زیر را در اختیار می‌گذارد:
+                    این سایت مقادیر زیر را در اختیار می‌گذارد:
                     <li>قیمت باز شدن</li>
                     <li>بالاترین قیمت آن روز</li>
                     <li>پایین‌ترین قیمت آن روز</li>
-                    <li>قیمت بسته شدن</li>
-                    <li>قیمت بسته‌شده تنظیم‌شده (که در این پروژه استفاده می‌شود)</li>
+                    <li>قیمت بسته‌شده (که در این پروژه استفاده می‌شود)</li>
                     <li>حجم</li>
                 </p>
+                <br>
                 <p>
-                    برای آماده‌سازی مجموعه داده‌های آموزشی برای شبکه عصبی ما، ما از قیمتهای بسته‌شده تنظیم‌شده سهام
+                    برای آماده‌سازی مجموعه داده‌های آموزشی برای شبکه عصبی ما، ما از قیمتهای بسته‌شده سهام
                     استفاده می‌کنیم؛ که همچنین به این معناست که ما به دنبال پیش‌بینی قیمت بسته‌شده آینده هستیم.
                 </p>
+                <br>
 
                 <span class="card-title">آزمایش کنید</span>
 
                 <p>
-                    <!-- [how to use, what you want your reader to do after you end, as simple and obvious] -->
-                    از کلید API<i>demo</i> برای دریافت قیمت‌های <i>Microsoft Corporation</i> استفاده کنید یا برای
-                    سهام‌های دیگر <a href="https://www.alphavantage.co/support/#api-key" target="_blank">کلید API خود را
-                        دریافت کنید</a>.
+                    پس از دریافت فایل اکسل از سایت فناوری بورس تهران اکسل را در این بخش اضافه کنید تا اطلاعات مورد نیاز دریافت شود
                 </p>
 
                 <div class="row" id="div_container_getdata">
-                    <div class="col m4">
-                        <div class="input-field col s12">
-                            <label for="input_ticker">نماد تیکر</label>
-                            <input type="text" id="input_ticker" placeholder="مثال: MSFT" value="MSFT">
-                            <small class="form-text text-muted">کلید API نمایش فقط 'MSFT' مجاز است</small>
-                        </div>
-                    </div>
-                    <div class="col m4">
-                        <div class="input-field col s12">
-                            <label for="input_apikey">کلید API Alpha Vantage</label>
-                            <input type="text" id="input_apikey"
-                                placeholder="کلید API خود را وارد کنید یا از 'demo' استفاده کنید" value="demo">
-                            <small class="form-text text-muted">شما می‌توانید کلید API خود را از <a
-                                    href="https://www.alphavantage.co/support/#api-key"
-                                    target="_blank">alphavantage.co</a> دریافت کنید</small>
-                        </div>
-                    </div>
-                    <div class="col m4">
-                        <div class="input-field col s12">
-                            <select onchange="onClickChangeDataFreq(this)">
-                                <option value="Weekly" onchange="onClickChangeDataFreq('Weekly')" selected>هفتگی
-                                </option>
-                                <option value="Daily" onchange="onClickChangeDataFreq('Daily')">روزانه</option>
-                            </select>
-                            <label>دقت زمانی داده‌ها</label>
+                    <div class="col m6 offset-m3">
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                <span>اکسل معاملات نماد</span>
+                                <input type="file" id="input_excel" accept=".xsl">
+                              </div>
+                              <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" placeholder="فایل اکسل را انتخاب کنید">
+                              </div>
+                            <small class="form-text text-muted">شما می‌توانید اکسل اطلاعات سهام را از <a
+                                    href="https://www.fipiran.com/DataService/TradeIndex"
+                                    target="_blank">fipiran</a> دریافت کنید</small>
                         </div>
                     </div>
                     <div class="col s12">
@@ -181,13 +141,13 @@
                             onclick="onClickFetchData()">دریافت داده‌ها</button>
                         <div class="preloader-wrapper small active" id="load_fetch_data" style="display:none">
                             <div class="spinner-layer spinner-green-only">
-                                <div class="circle-clipper left">
+                                <div class="circle-clipper right">
                                     <div class="circle"></div>
                                 </div>
                                 <div class="gap-patch">
                                     <div class="circle"></div>
                                 </div>
-                                <div class="circle-clipper right">
+                                <div class="circle-clipper left">
                                     <div class="circle"></div>
                                 </div>
                             </div>
@@ -202,7 +162,7 @@
                             <div class="card-content">
                                 <span class="card-title">داده‌های بارگیری شده سهام</span>
                                 <span class="card-title grey-text text-darken-4" id="div_linegraph_data_title">عنوان
-                                    کارت<< /span>
+                                    کارت</span>
                                         <div>
                                             <div id="div_linegraph_data" style="width:100%; height:350px;"></div>
                                         </div>
@@ -220,8 +180,8 @@
                 <span class="card-title">میانگین متحرک ساده</span>
                 <p>
                     <!-- [purpose of this step, fun for the reader] -->
-                    برای این آزمایش، ما از <a href="https://en.wikipedia.org/wiki/Supervised_learning"
-                        target="_blank">یادگیری نظارت‌شده</a> استفاده می‌کنیم، که به این معناست داده‌ها را به شبکه عصبی
+                    برای این آزمایش، ما از <a href="https://fa.wikipedia.org/wiki/%DB%8C%D8%A7%D8%AF%DA%AF%DB%8C%D8%B1%DB%8C_%D9%86%D8%B8%D8%A7%D8%B1%D8%AA%E2%80%8C%D8%B4%D8%AF%D9%87"
+                        target="_blank">یادگیری نظارت‌شده</a> استفاده می‌کنیم، که به این معناست اطلاعات را به شبکه عصبی
                     می‌دهیم و این شبکه با نگاشت داده‌های ورودی به برچسب خروجی یاد می‌گیرد. یکی از روش‌های آماده‌سازی
                     مجموعه داده‌های آموزشی، استخراج میانگین متحرک ساده از داده‌های سری‌زمانی است.
                 </p>
@@ -234,11 +194,11 @@
                     زمانی واحد، و <i>برچسب</i> میانگین متحرک محاسبه‌شده از این قیمت‌ها است.
                 </p>
 
-                <span class="card-title">آزمایش کنید</span>
+                <span class="card-title">شروع کنیم</span>
 
                 <div class="row" id="div_container_getsmafirst">
                     <div class="col s12">
-                        <p>اما ابتدا، از مرحله قبلی <a href="#div_data">داده‌های سهام را واکش کنید</a>.</p>
+                        <p>حتما ابتدا، از مرحله قبلی <a href="#div_data">داده‌های سهام را واکش کنید</a>.</p>
                     </div>
                 </div>
 
@@ -297,12 +257,12 @@
                 <p>
                     <!-- [purpose of this step, fun for the reader] -->
                     حال که شما داده‌های آموزشی را دارید، وقت آن است تا یک مدل برای پیش‌بینی داده‌های سری زمانی بسازید،
-                    برای این کار ما از چهارچوب <a href="https://js.tensorflow.org/" target="_blank">TensorFlow.js</a>
+                    برای این کار ما از کتابخانه <a href="https://js.tensorflow.org/" target="_blank">TensorFlow.js</a>
                     استفاده خواهیم کرد.
                 </p>
                 <p>
                     مدل <a href="https://js.tensorflow.org/api/latest/#sequential" target="_blank">Sequential</a> انتخاب
-                    شده که به سادگی هر لایه را به هم متصل می‌کند و داده‌ها را از ورودی به خروجی در طول فرآیند آموزش
+                    شده که به سادگی هر لایه را به هم متصل می‌کند و اطلاعات را از ورودی به خروجی در طول فرآیند آموزش
                     انتقال می‌دهد. برای اینکه مدل بتواند داده‌های سری زمانی که پشت سر هم هستند را بیاموزد، لایه <a
                         href="https://js.tensorflow.org/api/latest/#layers.rnn" target="_blank">شبکه‌های عصبی بازگشتی
                         (RNN)</a> ایجاد شده و تعداد <a href="https://js.tensorflow.org/api/latest/#layers.lstmCell"
@@ -322,7 +282,7 @@
                     هستند:
                     <li>اندازه مجموعه داده‌های آموزشی (%): مقدار داده‌های استفاده‌شده برای آموزش، و داده‌های باقی‌مانده
                         برای پیش‌بینی استفاده می‌شوند</li>
-                    <li>Epochs: تعداد دفعاتی که مجموعه داده‌ها برای آموزش مدل استفاده می‌شوند (<a
+                    <li>Epochs: تعداد دفعاتی که مجموعه اطلاعاتبرای آموزش مدل استفاده می‌شوند (<a
                             href="https://machinelearningmastery.com/difference-between-a-batch-and-an-epoch/"
                             target="_blank">بیشتر بیاموزید</a>)</li>
                     <li>نرخ یادگیری: مقدار تغییر در وزن‌ها در هر مرحله آموزش (<a
@@ -427,9 +387,9 @@
                 <p>
                     <!-- [purpose of this step, fun for the reader] -->
                     حالا که مدل خود را آموزش داده‌اید، زمان آن رسیده که از تابع model.predict در TFJS برای پیش‌بینی
-                    مقادیر آینده استفاده کنید. ما داده‌ها را به دو بخش تقسیم کرده‌ایم، یک زیرمجموعه از داده‌ها برای
+                    مقادیر آینده استفاده کنید. ما اطلاعاترا به دو بخش تقسیم کرده‌ایم، یک زیرمجموعه از اطلاعاتبرای
                     آموزش و بقیه برای مجموعه اعتبارسنجی استفاده می‌شود. مجموعه آموزشی برای تمرین مدل استفاده شده‌اند،
-                    بنابراین مجموعه اعتبارسنجی برای اعتبارسنجی مدل استفاده خواهد شد. از آنجا که مدل قبلاً داده‌ها را در
+                    بنابراین مجموعه اعتبارسنجی برای اعتبارسنجی مدل استفاده خواهد شد. از آنجا که مدل قبلاً اطلاعاترا در
                     مجموعه اعتبارسنجی ندیده است، خوب خواهد بود اگر مدل بتواند مقادیری نزدیک به مقادیر دقیق پیش‌بینی کند.
                 </p>
                 <span class="card-title">آزمایش کنید</span>
@@ -560,17 +520,17 @@
             <div class="col s12 m4">
                 <a href="https://github.com/majidh1/ai-price-prediction" style="color:#000;">
                     <center>
-                        <i class="fab fa-github" style="font-size: 100px;"></i><br />
-                        <span style="font-size:40px;">مخزن GitHub</span><br />
+                        <i class="fab fa-github"></i><br />
+                        <span>Repository GitHub</span><br />
                         <p>دریافت کد کامل</p><br />
                     </center>
                 </a>
             </div>
             <div class="col s12 m4">
-                <a href="https://majidh1.github.io/ai-price-prediction/playground/" style="color:#000;">
+                <a href="https://github.com/majidh1" style="color:#000;">
                     <center>
-                        <i class="fas fa-laptop-code" style="font-size: 100px;"></i><br />
-                        <span style="font-size:40px;">زمین بازی</span><br />
+                        <i class="fas fa-laptop-code"></i><br />
+                        <span>MAjidH1</span><br />
                         <p>بررسی پروژه‌های دیگر</p><br />
                     </center>
                 </a>
@@ -578,8 +538,8 @@
             <div class="col s12 m4">
                 <a href="https://www.linkedin.com/in/majidh1/" style="color:#000;">
                     <center>
-                        <i class="fab fa-linkedin-in" style="font-size: 100px;"></i><br />
-                        <span style="font-size:40px;">ارتباط برقرار کردن</span><br />
+                        <i class="fab fa-linkedin-in"></i><br />
+                        <span>ارتباط برقرار کردن</span><br />
                         <p>با من در LinkedIn ارتباط برقرار کنید</p><br />
                     </center>
                 </a>
@@ -589,8 +549,7 @@
     </div> <!-- E container -->
 
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://majidh1.github.io/ai-price-prediction/assets/js/materialize.min.js"
-        type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.15.0/dist/tf.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 

@@ -1,0 +1,36 @@
+@font-face {
+    font-family: "Samim";
+    src: url('Samim-FD.woff2') format('woff2');
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    direction: rtl;
+    text-align: right;
+    line-height: 1.6;
+    font-size: 16px;
+    background-color: #fcfcfc;
+    font-family: Samim;
+}
+
+h1{
+    font-size: 2rem;
+    line-height: 1.6;
+}
+h2{
+    font-size: 1.8rem;
+    line-height: 1.6;
+}
+h3{
+    font-size: 1.6rem;
+    line-height: 1.6;
+}
+h4{
+    font-size: 1.4rem;
+    line-height: 1.6;
+}
+h5{
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
