@@ -13,6 +13,9 @@ body{
     background-color: #fcfcfc;
     font-family: Samim;
 }
+button, input, optgroup, select, textarea{
+    font-family: Samim !important;
+}
 
 h1{
     font-size: 2rem;
@@ -33,4 +36,37 @@ h4{
 h5{
     font-size: 1.2rem;
     line-height: 1.6;
+}
+
+.card-title{
+    padding-bottom: 15px;
+}
+
+.fix-bottom-ad {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #00a97f;
+    padding: 2vh;
+    text-align: center;
+    box-sizing: border-box;
+    z-index: 1;
+}
+.fix-bottom-ad b {
+    background:yellow;
+    padding:3px 5px;
+    border-radius:5px;
+    font-size: 1.8vh;
+}
+
+#div_trainingdata{
+    overflow-x: scroll;
+    max-height: 300px;
+    direction: ltr;
+}
+
+.input-field,.js-plotly-plot,#div_traininglog {
+    direction:ltr;
+    text-align:left
 }

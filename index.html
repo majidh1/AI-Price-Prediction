@@ -3,28 +3,32 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="پیشبینی قیمت سهام بورس تهران ایران با استفاده از هوش مصنوعی AI و اندیکاتور SMA" />
+    <meta name="author" content="Majid Houshyar,MAjidH1">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="document-type" content="Public" />
+    <meta name="keywords" content="هوش مصنوعی, پیش‌بینی, آینده بورس, قیمت سهام AI, اندیکاتور SMA">
     <title>پیشبینی قیمت نماد بورس ایران - Majid Houshyar (MAjidH1)</title>
     <link rel="icon" type="image/png" href="assets/img/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="assets/css/custom.css" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link rel="preload" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" as="style"
-        onload="this.rel='stylesheet'">
+    <link rel="preload" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" as="style" onload="this.rel='stylesheet'">
 </head>
 
 <body>
 
     <div class="navbar-fixed">
-        <nav class="z-depth-2 nav-bar" role="navigation">
+        <nav class="z-depth-2 nav-bar teal darken-1" role="navigation">
             <div class="nav-wrapper container">
                 <div class="right">
                     پیشبینی قیمت نماد در آینده با TensorFlow.js
                 </div>
                 <ul class="left hide-on-med-and-down">
                     <li><a href="https://www.fipiran.com/DataService/TradeIndex" class="tooltipped" data-position="top"
-                            data-tooltip="Fipiran"><i class="fas fa-blog"></i><span id="menu-text"> fipiran </span></a>
+                            data-tooltip="فناوری بورس تهران"><i class="fas fa-blog"></i><span id="menu-text"> fipiran </span></a>
                     </li>
-                    <li><a href="https://github.com/majidh1" target="_blank"><i class="fab fa-github-square"></i><span
+                    <li><a href="https://github.com/majidh1" target="_blank"><i class="fa fa-user"></i><span
                                 id="menu-text"> MAjidH1 </span></a></li>
                     <li><a href="https://github.com/majidh1/ai-price-prediction" target="_blank"><i
                                 class="fab fa-github-square"></i><span id="menu-text"> Source </span></a></li>
@@ -35,8 +39,8 @@
         <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
     <ul id="slide-out" class="sidenav">
-        <li><a href="https://majidh1.github.io/ai-price-prediction/" class="tooltipped" data-position="top"
-                data-tooltip="Blog"><i class="fas fa-blog"></i><span id="menu-text">Blog</span></a></li>
+        <li><a href="https://www.fipiran.com/DataService/TradeIndex" class="tooltipped" data-position="top"
+                data-tooltip="فناوری بورس تهران"><i class="fas fa-excel"></i><span id="menu-text">فناوری بورس تهران</span></a></li>
         <li><a href="https://majidh1.github.io/ai-price-prediction/playground/" class="tooltipped" data-position="top"
                 data-tooltip="Playground"><i class="fas fa-laptop-code"></i><span id="menu-text">Playground</span></a>
         </li>
@@ -44,35 +48,37 @@
                     id="menu-text">GitHub</span></a></li>
     </ul>
 
-    <div class="container blog-content">
+    <div class="container">
         <div class="card">
             <div class="card-content">
-                <h1 class="title grey-text text-darken-4">پیشبینی قیمت نماد در آینده با TensorFlow.js</h1>
-                <h5 class="subtitle grey-text text-darken-2">معاملات نماد را از fipiran دریافت کنید و پیش‌بینی‌ها را با
+                <span class="card-title grey-text text-darken-4">پیشبینی قیمت نماد در آینده با TensorFlow.js</span>
+                <span class="card-subtitle grey-text text-darken-2">معاملات نماد را از fipiran دریافت کنید و پیش‌بینی‌ها را با
                     استفاده از شبکه عصبی بازگشتی (Recurrent Neural Network) 
                     و
                     LSTM
                     (Long Short-Term Memory)
                        با فریمورک
-                    TensorFlow.js انجام دهید.</h5>
+                    TensorFlow.js انجام دهید.</span>
             </div>
             <div class="card-image">
-                <img src="https://majidh1.github.io/ai-price-prediction/assets/img/posts/time-series-00.jpg"
+                <img src="assets/img/time-series-00.png"
                     alt="پیشبینی قیمت نماد در آینده با TensorFlow.js">
             </div>
             <div class="card-content">
                 <p>
                     <!-- [write about the purpose for this experiment] -->
-                    یادگیری ماشینی این روزها در حال پیشرفت و محبوبیت فزاینده‌ای است و تعداد بیشتری از جمعیت جهان آن را
-                    همچون گوی جادویی می‌بینند: پیش‌بینی اینکه چه زمانی و چه اتفاقی در آینده رخ خواهد داد. این آزمایش از
-                    شبکه‌های عصبی مصنوعی برای فاش‌سازی ترندهای بازار سهام استفاده می‌کند و توانایی پیش‌بینی سری‌زمانی را
-                    به منظور پیش‌بینی قیمت‌های آتی سهام بر اساس داده‌های تاریخی گذشته نشان می‌دهد.
+                    یادگیری ماشینی این روزها در حال پیشرفت و محبوبیت فزاینده‌ای است و تعداد بیشتری از مردم جهان آن را
+                    همچون گوی جادویی می‌بینند (پیش‌بینی اینکه چه زمانی و چه اتفاقی در آینده رخ خواهد داد). این آزمایش از
+                    شبکه‌های عصبی مصنوعی برای نمایش ترندهای بازار سهام استفاده می‌کند و توانایی پیش‌بینی سری‌زمانی را
+                    به منظور پیش‌بینی قیمت‌های بعدی سهم بر اساس اطلاعات گذشته را دارد.
                 </p>
+                <br>
                 <p>
                     <!-- [disclaimer] -->
                     <b>سلب مسئولیت</b>: نوسانات بازار سهام به دلیل عوامل متعدد، پویا و غیرقابل پیش‌بینی هستند و این
                     آزمایش صرفاً جهت اهداف آموزشی است و به هیچ وجه ابزاری برای پیش‌بینی معاملات نمی‌باشد.
                 </p>
+                <br>
                 <p>
                     <!-- [how to use this experiment, outline] -->
                     این آزمایش شامل چهار بخش است:
@@ -96,7 +102,7 @@
                 <p>
                     <!-- [purpose of this step, fun for the reader] -->
                     پیش از اینکه بتوانیم شبکه عصبی را آموزش دهیم و هرگونه پیش‌بینی انجام دهیم، نیازمند داده هستیم. نوع
-                    داده‌ای که به دنبال آن هستیم سری‌زمانی است: دنباله‌ای از اعداد به ترتیب زمانی. یک جای مناسب برای به
+                    داده‌ای که به دنبال آن هستیم سری‌زمانی (دنباله‌ای از اعداد به ترتیب زمانی) است. یک جای مناسب برای به
                     دست آوردن این اطلاعات <a href="https://www.fipiran.com/DataService/TradeIndex" target="_blank">سایت فناوری بورس تهران</a> است. این سایت به ما اجازه می‌دهد که داده‌های زمانی را راجع به قیمت‌های معاملات سهام
                     شرکت‌ها از ۲۰ سال گذشته به دست آوریم.
                 </p>
@@ -118,7 +124,7 @@
                 <span class="card-title">آزمایش کنید</span>
 
                 <p>
-                    پس از دریافت فایل اکسل از سایت فناوری بورس تهران اکسل را در این بخش اضافه کنید تا اطلاعات مورد نیاز دریافت شود
+                    پس از <a href="https://www.fipiran.com/DataService/TradeIndex" target="_blank">دریافت فایل اکسل</a> از سایت فناوری بورس تهران اکسل را در این بخش اضافه کنید تا اطلاعات مورد نیاز دریافت شود
                 </p>
 
                 <div class="row" id="div_container_getdata">
@@ -126,20 +132,18 @@
                         <div class="file-field input-field">
                             <div class="btn">
                                 <span>اکسل معاملات نماد</span>
-                                <input type="file" id="input_excel" accept=".xsl">
+                                <input type="file" id="input_excel" accept=".xls">
                               </div>
                               <div class="file-path-wrapper">
                                 <input class="file-path validate" type="text" placeholder="فایل اکسل را انتخاب کنید">
                               </div>
-                            <small class="form-text text-muted">شما می‌توانید اکسل اطلاعات سهام را از <a
-                                    href="https://www.fipiran.com/DataService/TradeIndex"
-                                    target="_blank">fipiran</a> دریافت کنید</small>
+                            <small class="form-text text-muted">شما می‌توانید اکسل اطلاعات سهام را از fipiran دریافت کنید</small>
                         </div>
                     </div>
                     <div class="col s12">
                         <button class="waves-effect waves-light btn" id="btn_fetch_data"
-                            onclick="onClickFetchData()">دریافت داده‌ها</button>
-                        <div class="preloader-wrapper small active" id="load_fetch_data" style="display:none">
+                            onclick="onClickFetchData()">تایید اکسل و شروع عملیات</button>
+                        <div class="preloader-wrapper small active" dir="ltr" id="load_fetch_data" style="display:none">
                             <div class="spinner-layer spinner-green-only">
                                 <div class="circle-clipper right">
                                     <div class="circle"></div>
@@ -160,7 +164,7 @@
                     <div class="col s12">
                         <div class="card z-depth-2">
                             <div class="card-content">
-                                <span class="card-title">داده‌های بارگیری شده سهام</span>
+                                <span class="card-title">اطلاعات دریافت شده از اکسل برای سهام</span>
                                 <span class="card-title grey-text text-darken-4" id="div_linegraph_data_title">عنوان
                                     کارت</span>
                                         <div>
@@ -177,7 +181,7 @@
 
         <div class="card" id="div_sma">
             <div class="card-content">
-                <span class="card-title">میانگین متحرک ساده</span>
+                <span class="card-title">(SMA) میانگین متحرک ساده</span>
                 <p>
                     <!-- [purpose of this step, fun for the reader] -->
                     برای این آزمایش، ما از <a href="https://fa.wikipedia.org/wiki/%DB%8C%D8%A7%D8%AF%DA%AF%DB%8C%D8%B1%DB%8C_%D9%86%D8%B8%D8%A7%D8%B1%D8%AA%E2%80%8C%D8%B4%D8%AF%D9%87"
@@ -188,9 +192,9 @@
                 <p>
                     <a href="https://www.investopedia.com/terms/s/sma.asp" target="_blank">میانگین متحرک ساده (SMA)</a>
                     یک روش برای شناسایی جهت روند‌ها در یک دوره زمانی معین است، که با نگاه کردن به میانگین همه ارزش‌ها در
-                    آن پنجره زمانی محاسبه می‌شود. تعداد قیمت‌ها در یک پنجره زمانی به صورت تجربی انتخاب می‌شود. به عنوان
+                    آن دوره زمانی محاسبه می‌شود. تعداد قیمت‌ها در یک دوره زمانی به صورت تجربی انتخاب می‌شود. به عنوان
                     مثال، فرض کنید قیمت‌های بسته شدن در ۵ روز گذشته ۱۳، ۱۵، ۱۴، ۱۶، ۱۷ بوده است، SMA برابر خواهد بود با
-                    (۱۳+۱۵+۱۴+۱۶+۱۷)/۵ = ۱۵. پس <i>ورودی</i> برای مجموعه داده‌های آموزشی ما مجموعه قیمت‌ها در یک پنجره
+                    (۱۳+۱۵+۱۴+۱۶+۱۷)/۵ = ۱۵. پس <i>ورودی</i> برای مجموعه داده‌های آموزشی ما مجموعه قیمت‌ها در یک دوره
                     زمانی واحد، و <i>برچسب</i> میانگین متحرک محاسبه‌شده از این قیمت‌ها است.
                 </p>
 
@@ -206,15 +210,14 @@
                     <div class="col s12">
                         <p>
                             <!-- [how to use, what you want your reader to do after you end, as simple and obvious] -->
-                            بیایید مجموعه داده‌های آموزشی را تولید کنیم، با فشار دادن دکمه <i>Compute SMA and Draw
-                                Chart</i> می‌توانید داده‌های آموزشی را برای شبکه عصبی ایجاد کنید.
+                            بیایید مجموعه داده‌های آموزشی را تولید کنیم، با فشار دادن دکمه <i>محاسبه SMA و رسم نمودار</i> می‌توانید داده‌های آموزشی را برای شبکه عصبی ایجاد کنید.
                         </p>
                     </div>
-                    <div class="col s6">
+                    <div class="col s6 offset-s3">
                         <div class="input-field col s12">
-                            <label for="input_windowsize">اندازه پنجره</label>
+                            <label for="input_windowsize">اندازه دوره زمانی</label>
                             <input type="number" id="input_windowsize" placeholder="یک عدد" value="20">
-                            <small class="form-text text-muted">این "پنجره زمانی" برای SMA است</small>
+                            <small class="form-text text-muted">این "دوره زمانی" برای SMA است</small>
                         </div>
                     </div>
                     <div class="col s12">
@@ -240,8 +243,7 @@
                         <div class="card z-depth-2">
                             <div class="card-content">
                                 <span class="card-title grey-text text-darken-4">داده‌های آموزشی (۲۵ سطر اول)</span>
-                                <div style="overflow-x: scroll;" id="div_trainingdata">
-                                </div>
+                                <div id="div_trainingdata"></div>
                             </div>
                         </div>
                     </div>
@@ -278,11 +280,11 @@
                 </p>
                 <p>
                     <!-- [how to use, what you want your reader to do after you end, as simple and obvious] -->
-                    این‌ها پارامترهای فراشناختی (پارامتر‌های استفاده‌شده در فرآیند آموزش) هستند که برای تنظیم در دسترس
+                    این‌ها پارامترهای Metacognition (پارامتر‌های استفاده‌شده در فرآیند آموزش) هستند که برای تنظیم در دسترس
                     هستند:
                     <li>اندازه مجموعه داده‌های آموزشی (%): مقدار داده‌های استفاده‌شده برای آموزش، و داده‌های باقی‌مانده
                         برای پیش‌بینی استفاده می‌شوند</li>
-                    <li>Epochs: تعداد دفعاتی که مجموعه اطلاعاتبرای آموزش مدل استفاده می‌شوند (<a
+                    <li>Epochs: تعداد دفعاتی که مجموعه اطلاعات برای آموزش مدل استفاده می‌شوند (<a
                             href="https://machinelearningmastery.com/difference-between-a-batch-and-an-epoch/"
                             target="_blank">بیشتر بیاموزید</a>)</li>
                     <li>نرخ یادگیری: مقدار تغییر در وزن‌ها در هر مرحله آموزش (<a
@@ -296,7 +298,7 @@
                 <span class="card-title">آزمایش کنید</span>
                 <p>
                     <!-- [how to use, what you want your reader to do after you end, as simple and obvious] -->
-                    می‌توانید پارامترهای فراشناختی را تنظیم کنید و سپس دکمه <i>Begin Training Model</i> را برای آموزش
+                    می‌توانید پارامترهای Metacognition را تنظیم کنید و سپس دکمه <i>آغاز آموزش مدل</i> را برای آموزش
                     مدل بزنید.
                 </p>
                 <div class="row" id="div_container_trainfirst">
@@ -311,7 +313,7 @@
                         <div class="col s12">
                             <p>
                                 <!-- [how to use, what you want your reader to do after you end, as simple and obvious] -->
-                                می‌توانید پارامترهای فراشناختی را تنظیم کنید و سپس دکمه <i>Begin Training Model</i> را
+                                می‌توانید پارامترهای Metacognition را تنظیم کنید و سپس دکمه <i>آغاز آموزش مدل</i> را
                                 برای آموزش مدل بزنید.
                             </p>
                         </div>
@@ -355,9 +357,9 @@
                         <div class="card z-depth-2">
                             <div class="card-content">
                                 <span class="card-title grey-text text-darken-4">آموزش مدل</span>
-                                <p>برای MSFT، انتظار می‌رود خطایی کمتر از 0.1 داشته باشیم. اگر تا Epoch #5 به زیر 1.0
-                                    نرفت، پیشنهاد می‌کنم صفحه را تازه کنید و دوباره امتحان کنید. توجه داشته باشید که،
-                                    این مرورگر باید فعال باشد تا آموزش پیشرفت داشته باشد.</p>
+                                <p>برای این نماد، انتظار می‌رود خطایی کمتر از 0.1 داشته باشیم. اگر تا Epoch #5 به زیر 1.0
+                                    نرفت، پیشنهاد می‌کنم صفحه را رفرش کنید و دوباره امتحان کنید. توجه داشته باشید که،
+                                    این تب مرورگر باید فعال و باز باشد تا آموزش پیشرفت داشته باشد.</p>
                                 <h6>پیشرفت</h6>
                                 <!-- <div class="progress">
                       <div class="progress-bar progress-bar-striped progress-bar-animated" id="div_training_progressbar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
@@ -366,12 +368,12 @@
                                     <div class="determinate" id="div_training_progressbar" style="width: 100%"></div>
                                 </div>
                                 <hr />
-                                <h6>خطا</h6>
-                                <div id="div_linegraph_trainloss" style="width:100%; height:250px;"></div>
-                                <hr />
                                 <h6>لاگ‌ها</h6>
                                 <div id="div_traininglog"
                                     style="overflow-x: scroll; overflow-y: scroll; height: 250px;"></div>
+                                <hr />
+                                <h6>خطا</h6>
+                                <div id="div_linegraph_trainloss" style="width:100%; height:250px;"></div>
                             </div>
                         </div>
                     </div>
@@ -387,9 +389,9 @@
                 <p>
                     <!-- [purpose of this step, fun for the reader] -->
                     حالا که مدل خود را آموزش داده‌اید، زمان آن رسیده که از تابع model.predict در TFJS برای پیش‌بینی
-                    مقادیر آینده استفاده کنید. ما اطلاعاترا به دو بخش تقسیم کرده‌ایم، یک زیرمجموعه از اطلاعاتبرای
+                    مقادیر آینده استفاده کنید. ما اطلاعات را به دو بخش تقسیم کرده‌ایم، یک زیرمجموعه از اطلاعات برای
                     آموزش و بقیه برای مجموعه اعتبارسنجی استفاده می‌شود. مجموعه آموزشی برای تمرین مدل استفاده شده‌اند،
-                    بنابراین مجموعه اعتبارسنجی برای اعتبارسنجی مدل استفاده خواهد شد. از آنجا که مدل قبلاً اطلاعاترا در
+                    بنابراین مجموعه اعتبارسنجی برای اعتبارسنجی مدل استفاده خواهد شد. از آنجا که مدل قبلاً اطلاعات را در
                     مجموعه اعتبارسنجی ندیده است، خوب خواهد بود اگر مدل بتواند مقادیری نزدیک به مقادیر دقیق پیش‌بینی کند.
                 </p>
                 <span class="card-title">آزمایش کنید</span>
@@ -409,7 +411,7 @@
                     <div class="col s12">
                         <p>
                             <!-- [how to use, what you want your reader to do after you end, as simple and obvious] -->
-                            روی دکمه <i>اعتبارسنجی مدل</i> فشار دهید تا ببینید این مدل چطور کار می‌کند. هورا!
+                            روی دکمه <i>اعتبارسنجی مدل</i> کلیک کنید تا ببینید این مدل چطور کار می‌کند. هورا!
                         </p>
                     </div>
                     <div class="col s6">
@@ -441,7 +443,7 @@
                     <!-- [purpose of this step, fun for the reader] -->
                     سرانجام، مدل اعتبارسنجی شده و مقادیر پیش‌بینی‌شده به خوبی با مقادیر واقعی همپوشانی دارند، حال ما از
                     آن برای پیش‌بینی آینده استفاده خواهیم کرد. ما همان تابع model.predict را به کار خواهیم بست و آخرین
-                    {{input_windowsize}} نقاط داده را به عنوان ورودی استفاده خواهیم کرد، زیرا این اندازه پنجره ما است.
+                    {{input_windowsize}} نقاط داده را به عنوان ورودی استفاده خواهیم کرد، زیرا این اندازه دوره ما است.
                     این بدان معناست که، اگر داده‌های آموزشی ما روزانه تکمیل شوند، ما از {{input_windowsize}} روز گذشته
                     به عنوان ورودی استفاده خواهیم کرد، برای پیش‌بینی روز بعد.
                 </p>
@@ -456,7 +458,7 @@
                     <div class="col s12">
                         <p>
                             <!-- [how to use, what you want your reader to do after you end, as simple and obvious] -->
-                            روی دکمه <i>Validate Model</i> فشار دهید تا ببینید این مدل چگونه کار می‌کند. هورا!
+                            روی دکمه <i>انجام پیش‌بینی</i> کلیک کنید تا ببینید این مدل چگونه کار می‌کند. هورا!
                         </p>
                     </div>
                     <div class="col s6">
@@ -487,15 +489,12 @@
                 <span class="card-title">نتیجه‌گیری</span>
                 <p>
                     چرا مدل من عملکرد خوبی ندارد؟<br />
-                    این مدل هیچ‌گاه داده‌های مشابهی در گذشته ندیده است. در مارس ۲۰۲۰، جایی که بازار کاهش یافت و ظرف مدت
-                    یک یا دو ماه بهبود یافت، این هرگز در تاریخ رخ نداده است. این مدل احتمالاً در پیش‌بینی تغییرات شدید
-                    در قیمت‌های سهام در آن دوره‌ها ناکام خواهد ماند.<br />
+                    این مدل هیچ‌گاه داده‌های مشابهی در گذشته ندیده است. در روز ۲۰ مرداد ۱۳۹۹ شاخص بورس درحالی که به تازگی عدد ۲ میلیون واحد را رد کرده بود شروع به ریزش کرد تا تاریخ ۸ مهر ۱۳۹۹ حدوداً ۲۵ درصد از ارزش خود را از دست داد. البته برخی از شرکت‌ها افت تا ۷۰ درصد را تجربه کردند. در روز دوشنبه ۲۸ مهر ۹۹ شاخص بورس باقدرت بسیار حمایت ۱۵۰۰۰۰۰ را از دست داد.<br />
                     ما می‌توانیم ویژگی‌های بیشتری اضافه کنیم. به طور کلی، ویژگی‌های بیشتر معمولاً باعث بهبود عملکرد مدل
                     می‌شوند. می‌توانیم شاخص‌های معاملاتی مانند همگرایی میانگین متحرک (MACD)، شاخص قدرت نسبی (RSI) یا
                     نوارهای بولینگر را بگنجانیم.<br />
                     حتی ویژگی‌های بیشتری اضافه کنید. یکی از چیزهای شگفت‌انگیزی که <a
-                        href="https://www.alphavantage.co/documentation/#fundamentals" target="_blank">API Alpha
-                        Vantage</a> ارائه می‌دهد، داده‌های بنیادی است. این به آن معنی است که شما همچنین می‌توانید
+                        href="https://www.fipiran.com/Codal/EPSPross" target="_blank">سایت فناوری بورس</a> ارائه می‌دهد، داده‌های بنیادی است. این به آن معنی است که شما همچنین می‌توانید
                     صورت‌های درآمد سالانه و فصلی و جریان‌های نقدی شرکت مورد علاقه خود را بگنجانید. که می‌داند، شاید این
                     ویژگی‌ها مفید باشند.<br />
                     ممکن است دلایل بسیار دیگری وجود داشته باشد که مدل موفق به یادگیری و پیش‌بینی نمی‌شود. این چالش
@@ -503,12 +502,10 @@
                 </p>
 
                 <p>
-                    راه‌های بسیاری برای پیش‌بینی سری زمانی به غیر از استفاده از میانگین متحرک ساده وجود دارد. حتما این
-                    مخزن را برای <a href="https://github.com/majidh1/ai-price-prediction" target="_blank">نسخه
-                        PyTorch</a> بررسی کنید که در آن تلاش می‌کنیم به جای SMA قیمت سهام را پیش‌بینی کنیم. کارهای آینده
-                    ممکن دیگر این است که این کار را با داده‌های بیشتری از منابع مختلف پیاده‌سازی کنیم.<br />
-                    با TensorFlow.js، یادگیری ماشینی در مرورگر وب امکانپذیر است و واقعاً بسیار جالب است.<br />
-                    دمویی در Github کاوش کنید، این آزمایش ۱۰۰٪ آموزشی است و به هیچ وجه ابزاری برای پیش‌بینی معاملات
+                    راه‌های بسیاری برای پیش‌بینی سری زمانی به غیر از استفاده از میانگین متحرک ساده وجود دارد.
+                    امکان دیگر این است که این کار را با داده‌های بیشتری از منابع مختلف پیاده‌سازی کنیم.<br />
+                    با TensorFlow.js، یادگیری ماشین در مرورگر وب امکانپذیر است و واقعاً بسیار جالب است.<br />
+                     این آزمایش ۱۰۰٪ آموزشی است و به هیچ وجه ابزاری برای پیش‌بینی معاملات
                     نیست.
                 </p>
             </div>
@@ -520,7 +517,7 @@
             <div class="col s12 m4">
                 <a href="https://github.com/majidh1/ai-price-prediction" style="color:#000;">
                     <center>
-                        <i class="fab fa-github"></i><br />
+                        <i class="fab fa-github fa-2x"></i><br />
                         <span>Repository GitHub</span><br />
                         <p>دریافت کد کامل</p><br />
                     </center>
@@ -529,7 +526,7 @@
             <div class="col s12 m4">
                 <a href="https://github.com/majidh1" style="color:#000;">
                     <center>
-                        <i class="fas fa-laptop-code"></i><br />
+                        <i class="fas fa-laptop-code fa-2x"></i><br />
                         <span>MAjidH1</span><br />
                         <p>بررسی پروژه‌های دیگر</p><br />
                     </center>
@@ -538,7 +535,7 @@
             <div class="col s12 m4">
                 <a href="https://www.linkedin.com/in/majidh1/" style="color:#000;">
                     <center>
-                        <i class="fab fa-linkedin-in"></i><br />
+                        <i class="fab fa-linkedin-in fa-2x"></i><br />
                         <span>ارتباط برقرار کردن</span><br />
                         <p>با من در LinkedIn ارتباط برقرار کنید</p><br />
                     </center>
@@ -547,11 +544,14 @@
         </div>
 
     </div> <!-- E container -->
-
+    <br>
+    <br>
+    <div class="fix-bottom-ad"><b>برای حمایت از این صفحه و کمک به گسترش و رواج فرهنگ اوپن سورس در ایران میتوانید به <a href="https://github.com/majidh1/ai-price-prediction">ریپازیتوری گیت&zwnj;هاب</a> ستاره بدین</b></div>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.15.0/dist/tf.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
 
     <script src="./model.js"></script>
     <script src="./index.js"></script>
