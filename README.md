@@ -1,7 +1,7 @@
 # AI-Price-Prediction
 پیشبینی قیمت آینده سهام با استفاده از tensorflow.js 
 
-[برای مشاهده دمو کلیک کنید](https://majidh1.github.io/ai-price-prediction)
+[برای مشاهده دمو کلیک کنید](https://majidh1.github.io/AI-Price-Prediction)
 
 با توجه به تمرکز این ریپازیتوری روی یادگیری ماشین بهتره برای مشاهده سورس به فایل model.js  مراجعه کنید.
 
